@@ -1,25 +1,15 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react'
 import './App.css';
-
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const timer = () => {
+  const [timeleft,setTimeLeft] = useState(60);
+  useEffect (() => console.log(timeleft));
+  const timer = setTimeout(() => {
+    setTimeLeft=(prevTime=> prevTime-1)
+  },1000);
+  
+  return () => clearTimeout(timer);
+}, [TimeLeft];
 
+}
 export default App;
